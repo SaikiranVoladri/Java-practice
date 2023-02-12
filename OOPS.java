@@ -1,52 +1,49 @@
 public class OOPS {
     public static void main(String args[]){
-     
-     dog f1 = new dog();
-      f1.eats();
-      f1.barks();
-      f1.walks();  
+     complex c= new complex(4, 5);
+     complex d= new complex(9, 4);
+
+    complex e=complex.add(c,d);
+    complex f= complex.diff(c, d);
+    complex g= complex.product(c, d);
+    e.print();
+    f.print();
+    g.print();
+
+
+    
     }
     
 }
-//parent class
-class Animal{
-   int legs;
-   String color;
+class complex{
+  int  real;
+  int imag;
+  public complex(int r, int i){
+   real=r;
+   imag=i;
+  }
 
-   void eats(){
-      System.out.println("eats f");
+  public static complex add(complex a, complex b){
+   return new complex((a.real+b.real),(a.imag+b.imag));
+  }
+
+  public static complex diff(complex a, complex b){
+   return new complex((a.real-b.real),(a.imag-b.imag));
+  }
+
+  public static complex product(complex a, complex b){
+   return new complex(((a.real+b.real)-(a.imag+b.imag)),((a.real+b.real)-(a.imag+b.imag)));
+  }
+   
+  public void print(){
+   if(real==0 && imag!=0){
+      System.out.println(imag+"i");
    }
-   void runs(){
-      System.out.println("runs");
+   else if(real!=0 && imag==0){
+      System.out.println(real);
    }
+   else{
+      System.out.println(real +" "+ imag +"i");
+   }
+  }
 }
-//subclass 
-class mammals extends Animal{
-   int legs;
-
-   void walks(){
-      System.out.println("walks");
-   }
-}
-class birds extends Animal{
-   int legs;
-
-   void fly(){
-      System.out.println("fly");
-   }
-}
-class dog extends mammals{
-   String color;
-   void barks(){
-      System.out.println("dog barks");
-   }
-}
-class peakok extends birds{
-   int legs;
-
-   void fly(){
-      System.out.println("fly");
-   }
-}
-
-
