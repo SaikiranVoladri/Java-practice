@@ -1,3 +1,4 @@
+import java.nio.file.FileStore;
 import java.util.*;
 
 class STACK{
@@ -158,14 +159,127 @@ class STACK{
         }
     }
 
-    public static void main(String[] args) {
-   int stocks[]={100,80,60,70,85,100};
-   int span[]=new int[stocks.length];
-   stokspan(stocks, span);
-    
-        for(int i=0;i<span.length;i++){
-            System.out.println(span[i]);
+
+    public static void nextGreater(int arr[], int nextArr[]){
+        Stack<Integer> s= new Stack<>();
+       
+        
+        for(int i=arr.length-1;i>=0;i--)    {
+           
+            while(!s.isEmpty() && arr[i]>= arr[s.peek()]){
+                s.pop();
+            }
+            if(s.isEmpty()){
+                nextArr[i]=-1;
+            }
+            else{
+                nextArr[i]=arr[s.peek()];
+            }
+            s.push(i);
         }
+    }
+
+public static boolean isvalid(String str){
+    Stack<Character> s= new Stack<>();
+    for(int i=0;i<str.length();i++){
+        char curr=str.charAt(i);
+        if(curr=='('||curr =='['|| curr=='{'){
+            s.push(curr);
+        }
+        else{
+            if(s.isEmpty()){
+                return false;
+            }
+            if(s.peek()=='(' && curr==')' || s.peek()=='[' && curr==']' || s.peek()=='{'&& curr=='}'){
+                s.pop();
+            }else{
+                return false;
+            }
+        }
+
+    }
+    if(s.isEmpty()){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+public static  boolean duplicate(String str){
+   Stack <Character> s= new Stack<>();
+    for(int i=0;i<str.length();i++){
+        char c= str.charAt(i);
+
+        if(c==')'){
+            if(s.isEmpty()){
+                return false;
+            }
+            int count=0;
+            while(s.peek()!='('){
+                count++;
+                s.pop();
+            }
+            if(count<1){
+                return true;
+            }
+            s.pop();
+        }
+       else{
+        s.push(c);
+       }
+    }
+    return false;
+}
+
+public static void max(int arr[]){
+    int[]nsl=new int[arr.length];
+    int []nsr= new int [arr.length];
+    Stack <Integer> s= new Stack<>();
+    int max=0;
+    // nsl
+  for(int i=0;i<arr.length;i++){
+        while(!s.isEmpty()&&arr[s.peek()]>=arr[i]){
+            s.pop();
+        }
+        if(s.isEmpty()){
+            nsl[i]=-1;
+        }
+        else{
+            nsl[i]=s.peek();
+        }
+        s.push(i);
+
+  }
+  for(int i=arr.length-1;i>=0;i--){
+    while(!s.isEmpty()&&arr[s.peek()]>=arr[i]){
+        s.pop();
+    }
+    if(s.isEmpty()){
+        nsr[i]=arr.length;
+    }
+    else{
+        nsr[i]=s.peek();
+    }
+    s.push(i);
+
+}
+
+
+    //area
+    for(int i=0;i<arr.length;i++){
+     int h=arr[i];
+     int w=nsr[i]-nsl[i]-1;
+     int tot=h*w;
+     max= Math.max(max,tot);
+
+    }
+
+    System.out.println("max"+max);
+}
+
+    public static void main(String[] args) {
+ int arr[]= {2,1,5,6,2,3};
+ max(arr);
     
     }
 }
