@@ -1,5 +1,5 @@
-// import java.util.*;
-// public class DPPART2 {
+import java.util.*;
+ public class DPPART2 {
 
 //     public static int Knapsack(int val[], int wt[], int C, int n,int dp[][]){
 //         if(n==0 || C==0){
