@@ -84,14 +84,14 @@
 
 // //     for(int i=0;i<graph.length;i++){
 // //         if(!vis[i]){
-// //             Bfsutil(graph, vis);
+// //             Bfsutil(graph, vis,i) ;
 // //         }
 // //     }
 // // }
-// // public static void Bfsutil(ArrayList<Edge> graph[],  boolean vis[]){
+// // public static void Bfsutil(ArrayList<Edge> graph[],  boolean vis[], int i){
 // //     Queue<Integer> q= new LinkedList<>();
     
-// //     q.add(2);
+// //     q.add(i);
 
 // //     while(!q.isEmpty()){
 // //         int curr=q.remove();
