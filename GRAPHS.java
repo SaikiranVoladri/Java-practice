@@ -130,12 +130,12 @@ public static boolean hashpath(ArrayList<Edge>graph[], int src, int dest ,boolea
 
 
 public static void main(String[] args) {
-    //arraylist array
-    // int V=7
+    arraylist array
+    int V=7
     ArrayList<Edge>graph[]= new ArrayList[7];
     creategraph(graph);
-    // Bfs(graph);
-    // Dfs(graph, 2, new boolean[7]);
+    Bfs(graph);
+    Dfs(graph, 2, new boolean[7]);
 
    boolean s= hashpath(graph, 0, 6, new boolean[5]);
    System.out.println(s);
