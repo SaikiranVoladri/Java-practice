@@ -1,6 +1,6 @@
 
-// public class BACKTRACKING {
-// //     public static void printarr(int arr[], int i, int val){
+ public class BACKTRACKING {
+ //     public static void printarr(int arr[], int i, int val){
 //        //base case
 // //         if(i==arr.length){
 // //         print(arr);
